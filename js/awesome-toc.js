@@ -1,6 +1,6 @@
 (function ($) {
 
-    var DEBUG = false;
+    var DEBUG = true;
 
     var log = function(msg) {
         if (DEBUG) {
@@ -14,8 +14,8 @@
         css: {
             fontSize: "90%",
             largeFontSize: "120%",
-            fontColor: "#E5E5E5", 
-            activeFontColor: "#FFFFFF",  
+            fontColor: "#E5E5E5",
+            activeFontColor: "#FFFFFF",
             lineHeight: "1.8",
             backgroundColor: "#222",
             zIndex: 999999,
@@ -93,7 +93,7 @@
         title.textContent=baseConfig.title;
         toc.appendChild(title);
 
-        
+
         var headingList = baseConfig.headingList; // 若为空，[].slice.call会报错
         if (headingList.length > 0) {
             var headings = [].slice.call(contentRef.querySelectorAll(headingList.join(", ")));
@@ -111,11 +111,11 @@
                     $(this).parent().parent().find("a").css({"color": baseConfig.css.fontColor});
                     $(this).css({"color": baseConfig.css.activeFontColor});
                     var preOffset = $($(this).attr("href")).offset().top;
-                    var offsetTop = preOffset + lastOffset - baseConfig.topOffset;                    
+                    var offsetTop = preOffset + lastOffset - baseConfig.topOffset;
                     disableMenuScrollEvent();
                     $('body,#container').stop().animate(
-                        {   
-                            scrollTop: offsetTop 
+                        {
+                            scrollTop: offsetTop
                         },
                         {
                             duration: 300,
@@ -137,8 +137,8 @@
 
                 div.appendChild(link);
                 toc.appendChild(div);
-                
-                
+
+
             });
         }
 
@@ -152,7 +152,7 @@
         linkSelector += "#"+baseConfig.sideBarId+" a:visited";
         // console.log(linkSelector);
         $(linkSelector).css({
-            "color": baseConfig.css.fontColor, 
+            "color": baseConfig.css.fontColor,
             "word-wrap": "break-word",
             "text-decoration": "none",
             "line-height": baseConfig.css.lineHeight,
@@ -163,7 +163,7 @@
     var getIndent = function(currentHeading, headingList, baseIndent) {
         var position = 0;
         for (; position < headingList.length; position++) {
-            if (currentHeading !== headingList[position]) 
+            if (currentHeading !== headingList[position])
                 continue;
             else
                 break;
@@ -191,7 +191,7 @@
             "right": "50px",
             "width": "20px",
             "z-index": ""+(baseConfig.css.zIndex+1),
-            
+
         });
 
         for (var i=0; i<3; i++) {
@@ -206,20 +206,20 @@
                 "width": "100%",
             }).appendTo(toggleBtn);
         }
-        
+
         $("body").append(toggleBtn);
 
         toggleBtn.onclick = toggleButtonClickListener;
     };
 
 
-    var toggleButtonClickListener = function() { 
+    var toggleButtonClickListener = function() {
         log("in toggleButtonClickListener: overlay " + baseConfig.overlay);
         if ($(window).width() < baseConfig.windowMinWidth) {
             return;
         }
         var sideBar = $("#"+baseConfig.sideBarId);
-        // console.log(sideBar);    
+        // console.log(sideBar);
 
         if (sideBar.hasClass(baseConfig.sideBarPrefix+"active")) {   // 隐藏
             sideBar.removeClass(baseConfig.sideBarPrefix+"active");
@@ -275,10 +275,23 @@
     };
 
 //滚动页面更新当前目录
+    var isShowLeft = true;//是否显示左侧边栏
+    var scollerHeight = 25;//滚动高度
     var scrollHandler = function() {
         log("scroll");
         var fromTop = 10;
         lastOffset = $(this).scrollTop();
+
+      if(lastOffset > scollerHeight && isShowLeft){
+          log("收起侧边栏");
+          $(".left-col").animate({"margin-left":"-300px"}); //左边模块隐藏
+          $(".mid-col").animate({"left":"0"}); //中间的模块全屏化
+          isShowLeft = false;
+        }else if(lastOffset < scollerHeight && !isShowLeft){
+          $(".left-col").animate({"margin-left":"0px"}); //左边模块隐藏
+          $(".mid-col").animate({"left":"300px"}); //中间的模块全屏化
+          isShowLeft = true;
+        }
 
         var cur = scrollVar.scrollItems.map(function(){//map返回一个新的数组，包括文章标题里偏移量<10的标题
             log("cur offsetTop:"+$(this).offset().top + "fromTop:"+fromTop);
@@ -336,7 +349,7 @@
             } else {
                 if ($(heading).length >= 1) {
                     result.push(heading);
-                } 
+                }
             }
 
             if (result.length >= level) break;
@@ -352,20 +365,20 @@
             heading = headingList[idx];
             if (scope.find(heading).length > 0) {
                 result.push(heading.toLowerCase());
-            } 
+            }
         }
         return result;
     };
 
     var isToggleBtnExist = function() {
-        if ($('#'+baseConfig.sideBarPrefix+'toggleBtn').length == 0) 
+        if ($('#'+baseConfig.sideBarPrefix+'toggleBtn').length == 0)
             return false;
         else
             return true;
     };
 
     var isToTopBtnExist = function () {
-        if ($('#'+baseConfig.sideBarPrefix+'toTopBtn').length == 0) 
+        if ($('#'+baseConfig.sideBarPrefix+'toTopBtn').length == 0)
             return false;
         else
             return true;
@@ -382,7 +395,7 @@
             if (baseConfig.autoDetectHeadings) {
                 baseConfig.headingList = getNiceHeadingTags();
             }
-            
+
             baseConfig.headingList = compactHeadingTags(baseConfig.headingList);
 
 
@@ -393,7 +406,7 @@
                 scrollVar.lastId = '';
                 scrollVar.sideBar = $("#"+baseConfig.sideBarId),
                 scrollVar.menuItems = scrollVar.sideBar.find("a"),
-                scrollVar.scrollItems = scrollVar.menuItems.map(function(){  
+                scrollVar.scrollItems = scrollVar.menuItems.map(function(){
                     var item = $($(this).attr("href"));
                     log("item href:"+$(this).attr("href"))
                     if (item.length) { return item; }
