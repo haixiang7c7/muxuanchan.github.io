@@ -284,12 +284,14 @@
 
       if(lastOffset > scollerHeight && isShowLeft){
           log("收起侧边栏");
+          $(".tools-col").css("display","none");
           $(".left-col").animate({"margin-left":"-300px"}); //左边模块隐藏
           $(".mid-col").animate({"left":"0"}); //中间的模块全屏化
           isShowLeft = false;
         }else if(lastOffset < scollerHeight && !isShowLeft){
-          $(".left-col").animate({"margin-left":"0px"}); //左边模块隐藏
-          $(".mid-col").animate({"left":"300px"}); //中间的模块全屏化
+          $(".tools-col").css("display","block");
+          $(".left-col").animate({"margin-left":"0px"});
+          $(".mid-col").animate({"left":"300px"});
           isShowLeft = true;
         }
 
