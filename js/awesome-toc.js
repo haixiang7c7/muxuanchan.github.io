@@ -124,7 +124,6 @@
                     );
                     //滚动之后的实际偏移量；
                     var aftOffset = $($(this).attr("href")).offset().top;
-                    log("preOffset:"+preOffset+",aftOffset:"+aftOffset)
                     lastOffset = offsetTop + preOffset - aftOffset;
                     e.preventDefault();
                 });
@@ -214,7 +213,6 @@
 
 
     var toggleButtonClickListener = function() {
-        log("in toggleButtonClickListener: overlay " + baseConfig.overlay);
         if ($(window).width() < baseConfig.windowMinWidth) {
             return;
         }
@@ -267,8 +265,8 @@
         }).html("<span style=\"margin: 0 auto\">&#9650;</span>");
 
         toTopBtn.onclick = function() {
-            $("body,#container").animate({scrollTop: 0}, 600);
-            lastOffset = 0;
+            $("body,#container").animate({scrollTop: 25}, 600);
+            lastOffset = 25;
         };
 
         $("body").append(toTopBtn);
@@ -278,12 +276,10 @@
     var isShowLeft = true;//是否显示左侧边栏
     var scollerHeight = 25;//滚动高度
     var scrollHandler = function() {
-        log("scroll");
         var fromTop = 10;
         lastOffset = $(this).scrollTop();
 
       if(lastOffset > scollerHeight && isShowLeft){
-          log("收起侧边栏");
           $(".tools-col").css("display","none");
           $(".left-col").animate({"margin-left":"-300px"}); //左边模块隐藏
           $(".mid-col").animate({"left":"0"}); //中间的模块全屏化
@@ -296,13 +292,11 @@
         }
 
         var cur = scrollVar.scrollItems.map(function(){//map返回一个新的数组，包括文章标题里偏移量<10的标题
-            log("cur offsetTop:"+$(this).offset().top + "fromTop:"+fromTop);
             if ($(this).offset().top < fromTop){//当小标题的偏移量小于10也就是离页面顶端小于10的时候，目录跳到下一个
                 return this;
             }
         });
         // Get the id of the current element
-        log("cur length:"+cur.length);
         cur = cur[cur.length-1];
 
         var id = cur && cur.length ? cur[0].id : "";
@@ -410,10 +404,8 @@
                 scrollVar.menuItems = scrollVar.sideBar.find("a"),
                 scrollVar.scrollItems = scrollVar.menuItems.map(function(){
                     var item = $($(this).attr("href"));
-                    log("item href:"+$(this).attr("href"))
                     if (item.length) { return item; }
                 });
-                log("scrollVar:"+scrollVar);
 
             }
 
