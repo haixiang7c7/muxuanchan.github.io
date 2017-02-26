@@ -21,7 +21,7 @@
 
 在大规模服务化之前，应用可能只是通过RMI或Hessian等工具，简">
 <meta property="og:image" content="https://github.com/alibaba/dubbo/wiki/user-guide/images/dubbo-architecture.jpg">
-<meta property="og:updated_time" content="2017-02-26T14:14:03.000Z">
+<meta property="og:updated_time" content="2017-02-26T14:17:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java中间件系列之dubbo入门">
 <meta name="twitter:description" content="前言鉴于目前各个互联网公司都在打造自己的分布式服务系统，而分布式系统中又会涉及到各种常用的中间件，故决定花时间把当前流行的使用率比较高的几个中间件深入学习一下。千里之行始于足下，因工作原因今天就先挑一个分布式服务框架Dubbo来学习一番入个门。
@@ -195,12 +195,18 @@
 </blockquote>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Dubbo是一个分布式服务框架，致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。</p>
 <p>Dubbo采用全spring配置方式，透明化接入应用，对应用没有任何API侵入，只需用Spring加载Dubbo的配置即可，Dubbo基于Spring的Schema扩展进行加载。</p>
-<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p><img src="https://github.com/alibaba/dubbo/wiki/user-guide/images/dubbo-architecture.jpg" alt=""><br>&gt;<br>节点角色说明：</p>
+<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p><img src="https://github.com/alibaba/dubbo/wiki/user-guide/images/dubbo-architecture.jpg" alt=""></p>
+<blockquote>
+<p>节点角色说明：</p>
+</blockquote>
 <p>Provider: 暴露服务的服务提供方。</p>
 <p>Consumer: 调用远程服务的服务消费方。</p>
 <p>Registry: 服务注册与发现的注册中心。（可选，本文用zookeeper作为注册中心）</p>
 <p>Monitor: 统计服务的调用次调和调用时间的监控中心。（可选，本文不需要）</p>
-<p>Container: 服务运行容器。（可选，本文不需要）<br>&gt;<br>调用关系说明：</p>
+<p>Container: 服务运行容器。（可选，本文不需要）</p>
+<blockquote>
+<p>调用关系说明：</p>
+</blockquote>
 <p>服务容器负责启动，加载，运行服务提供者。</p>
 <p>服务提供者在启动时，向注册中心注册自己提供的服务。</p>
 <p>服务消费者在启动时，向注册中心订阅自己所需的服务。</p>
@@ -504,15 +510,15 @@ dubbo.admin.guest.password=guest
           <ul class="article-tag-list" q-show="showTags">
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术周边</a>
-              </li>
-            
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">java中间件</a>
               </li>
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">dubbo</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术周边</a>
               </li>
             
             <div class="clearfix"></div>
