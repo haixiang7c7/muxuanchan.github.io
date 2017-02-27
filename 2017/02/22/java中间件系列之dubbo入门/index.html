@@ -21,7 +21,7 @@
 
 在大规模服务化之前，应用可能只是通过RMI或Hessian等工具，简">
 <meta property="og:image" content="https://github.com/alibaba/dubbo/wiki/user-guide/images/dubbo-architecture.jpg">
-<meta property="og:updated_time" content="2017-02-26T14:17:42.000Z">
+<meta property="og:updated_time" content="2017-02-27T01:20:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java中间件系列之dubbo入门">
 <meta name="twitter:description" content="前言鉴于目前各个互联网公司都在打造自己的分布式服务系统，而分布式系统中又会涉及到各种常用的中间件，故决定花时间把当前流行的使用率比较高的几个中间件深入学习一下。千里之行始于足下，因工作原因今天就先挑一个分布式服务框架Dubbo来学习一番入个门。
@@ -221,7 +221,7 @@
 <p>clientPort：这个端口就是客户端连接 Zookeeper 服务器的端口，Zookeeper 会监听这个端口，接受客户端的访问请求。  </p>
 <p>当这些配置项配置好后，现在就可以启动Zookeeper了，zookeeper的启动脚本在bin目录下，找到对应系统的脚本zkServer启动即可，启动后要检查Zookeeper是否已经在服务，可以通过netstat –ano命令查看是否有你配置的clientPort端口号在监听服务。启动成功后请把运行脚本的窗口一直打开，而且要在程序运行之前就打开，这样zookeeper服务才会一直有效运行。</p>
 <p>由于zookeeper界面显示目前有哪些提供者或消费者，所以我们需要通过Dubbo-Admin管理平台来实时的查看，也可以通过这个平台来管理提者和消费者。</p>
-<h3 id="配置dubbo-admin"><a href="#配置dubbo-admin" class="headerlink" title="配置dubbo-admin"></a>配置dubbo-admin</h3><p>dubbo的所有源码可在<a href="https://github.com/alibaba/dubbo上下载，下载之后解压进入dubbo-admin文件夹，运行命令" target="_blank" rel="external">https://github.com/alibaba/dubbo上下载，下载之后解压进入dubbo-admin文件夹，运行命令</a> </p>
+<h3 id="配置dubbo-admin"><a href="#配置dubbo-admin" class="headerlink" title="配置dubbo-admin"></a>配置dubbo-admin</h3><p>dubbo的所有源码可上<a href="https://github.com/alibaba/dubbo" target="_blank" rel="external">https://github.com/alibaba/dubbo</a>下载，下载之后解压进入dubbo-admin文件夹，运行命令 </p>
 <pre><code>mvn package -Dmaven.skip.test=true  
 </code></pre><p>打包，打包成功之后进入targe目录，把war包放到Tomcat webapps目录下，启动tomcat，此时会把war包解压出来，进入WEB-INF目录，里面有个dubbo.properties文件，内容如下：</p>
 <pre><code>dubbo.registry.address=zookeeper://127.0.0.1:2181  
@@ -510,15 +510,15 @@ dubbo.admin.guest.password=guest
           <ul class="article-tag-list" q-show="showTags">
             
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术周边</a>
+              </li>
+            
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">java中间件</a>
               </li>
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">dubbo</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术周边</a>
               </li>
             
             <div class="clearfix"></div>
