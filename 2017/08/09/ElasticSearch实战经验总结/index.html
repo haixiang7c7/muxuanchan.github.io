@@ -14,14 +14,14 @@
 <meta property="og:url" content="http://blog.halochen.com/2017/08/09/ElasticSearch实战经验总结/index.html">
 <meta property="og:site_name" content="HaLo的个人博客">
 <meta property="og:description" content="最近产品中增加了搜索的需求，同时需要根据不同的维度来排列搜索结果，普通的sql排序已无法满足需求，因此需要一款搜索引擎来解决这个问题，网上搜索了一番发现目前比较流行的一款产品ElasticSearch，简单了解之后发现它功能强大天生支持分布式且容易上手，很适合作为我们产品的搜索引擎。本文接下来将简单介绍一下相关的实战经验，即作为本人的归纳总结，也是给其他想要采用ElasticSearch（下文简称">
-<meta property="og:image" content="http://blog.halochen.com/images/es/es1.png">
-<meta property="og:image" content="http://blog.halochen.com/images/es/kibanaLaunch.png">
-<meta property="og:image" content="http://blog.halochen.com/images/es/indexPattern.png">
-<meta property="og:updated_time" content="2017-09-01T08:15:12.000Z">
+<meta property="og:image" content="https://github.com/halochen90/HexoBlog/blob/master/source/_posts/images/es/es1.png?raw=true">
+<meta property="og:image" content="https://github.com/halochen90/HexoBlog/blob/master/source/_posts/images/es/kibanaLaunch.png?raw=true">
+<meta property="og:image" content="https://github.com/halochen90/HexoBlog/blob/master/source/_posts/images/es/indexPattern.png?raw=true">
+<meta property="og:updated_time" content="2017-09-08T04:35:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ElasticSearch实战经验总结">
 <meta name="twitter:description" content="最近产品中增加了搜索的需求，同时需要根据不同的维度来排列搜索结果，普通的sql排序已无法满足需求，因此需要一款搜索引擎来解决这个问题，网上搜索了一番发现目前比较流行的一款产品ElasticSearch，简单了解之后发现它功能强大天生支持分布式且容易上手，很适合作为我们产品的搜索引擎。本文接下来将简单介绍一下相关的实战经验，即作为本人的归纳总结，也是给其他想要采用ElasticSearch（下文简称">
-<meta name="twitter:image" content="http://blog.halochen.com/images/es/es1.png">
+<meta name="twitter:image" content="https://github.com/halochen90/HexoBlog/blob/master/source/_posts/images/es/es1.png?raw=true">
   
     <link rel="alternative" href="/atom.xml" title="HaLo的个人博客" type="application/atom+xml">
   
@@ -182,9 +182,9 @@ var _hmt = _hmt || [];
 	<div id="post-content-toc">
     
        	  <p>最近产品中增加了搜索的需求，同时需要根据不同的维度来排列搜索结果，普通的sql排序已无法满足需求，因此需要一款搜索引擎来解决这个问题，网上搜索了一番发现目前比较流行的一款产品ElasticSearch，简单了解之后发现它功能强大天生支持分布式且容易上手，很适合作为我们产品的搜索引擎。本文接下来将简单介绍一下相关的实战经验，即作为本人的归纳总结，也是给其他想要采用ElasticSearch（下文简称ES）的人一个参考。</p>
-<h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><p>要想使用ES的第一步必然是先下载安装了，我们打开<a href="https://www.elastic.co/cn/start?elektra=home&amp;storm=banner" target="_blank" rel="external">ES官网下载页</a>，上面很清晰地展示了5个步骤要做的事情，分别是：1.下载Elasticsearch，2.下载Kibana，3.安装X-Pack（安全、监控软件，非必需，如果只是在本地测试用的话可以不装，装了之后在打开kibana界面的时候会要求输入密码），4.启动elasticsearch和kibana，5.打开浏览器输入kibana的地址，访问kibana（注：kibana是ES官方推出的图形化管理工具，可以配合ES使用，后面也用到）。<br><img src="images/es/es1.png" alt="ES官网安装步骤"></p>
-<h3 id="使用kibana操作ES"><a href="#使用kibana操作ES" class="headerlink" title="使用kibana操作ES"></a>使用kibana操作ES</h3><h4 id="1-创建index-pattern"><a href="#1-创建index-pattern" class="headerlink" title="1.创建index pattern"></a>1.创建index pattern</h4><p>如果在上一步已经成功安装了所需的软件，那么现在我们就可以使用kibana来做一个es相关的操作了。<br>首先当你输入地址打开kibana的时候，我们会看到像下图一样的界面。<br><img src="images/es/kibanaLaunch.png" alt="kibana初始页面"></p>
-<p>页面的最上方有一条红色的提示，它的意思是在提醒我们目前还没指定一个索引模式，所以我们要做的第一步就是填写一个索引模式，比如“topanchor*”，星号代表匹配任何字符，它会去匹配你在ES中建立的所有索引，如果和这个模式匹配上就会在kibana中显示出来。<br><img src="images/es/indexPattern.png" alt="配置index pattern"></p>
+<h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><p>要想使用ES的第一步必然是先下载安装了，我们打开<a href="https://www.elastic.co/cn/start?elektra=home&amp;storm=banner" target="_blank" rel="external">ES官网下载页</a>，上面很清晰地展示了5个步骤要做的事情，分别是：1.下载Elasticsearch，2.下载Kibana，3.安装X-Pack（安全、监控软件，非必需，如果只是在本地测试用的话可以不装，装了之后在打开kibana界面的时候会要求输入密码），4.启动elasticsearch和kibana，5.打开浏览器输入kibana的地址，访问kibana（注：kibana是ES官方推出的图形化管理工具，可以配合ES使用，后面也用到）。<br><img src="https://github.com/halochen90/HexoBlog/blob/master/source/_posts/images/es/es1.png?raw=true" alt="ES官网安装步骤"></p>
+<h3 id="使用kibana操作ES"><a href="#使用kibana操作ES" class="headerlink" title="使用kibana操作ES"></a>使用kibana操作ES</h3><h4 id="1-创建index-pattern"><a href="#1-创建index-pattern" class="headerlink" title="1.创建index pattern"></a>1.创建index pattern</h4><p>如果在上一步已经成功安装了所需的软件，那么现在我们就可以使用kibana来做一个es相关的操作了。<br>首先当你输入地址打开kibana的时候，我们会看到像下图一样的界面。<br><img src="https://github.com/halochen90/HexoBlog/blob/master/source/_posts/images/es/kibanaLaunch.png?raw=true" alt="kibana初始页面"></p>
+<p>页面的最上方有一条红色的提示，它的意思是在提醒我们目前还没指定一个索引模式，所以我们要做的第一步就是填写一个索引模式，比如“topanchor*”，星号代表匹配任何字符，它会去匹配你在ES中建立的所有索引，如果和这个模式匹配上就会在kibana中显示出来。<br><img src="https://github.com/halochen90/HexoBlog/blob/master/source/_posts/images/es/indexPattern.png?raw=true" alt="配置index pattern"></p>
 <h4 id="2-创建index"><a href="#2-创建index" class="headerlink" title="2.创建index"></a>2.创建index</h4><p>做好了前面的准备工作之后，现在我们要真正来使用ES做一些事情了。最终我们想要的是利用ES来搜索我们想要的数据，所以首先得有数据，录入数据的第一步就是创建索引，索引可以类比成数据库，就像我们在往数据库录入数据的时候首先得创建一个数据库。创建index的语句如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">PUT /my_index</div><div class="line">&#123;</div><div class="line">    &quot;settings&quot;: &#123; ... any settings ... &#125;,</div><div class="line">    &quot;mappings&quot;: &#123;</div><div class="line">        &quot;type_one&quot;: &#123; ... any mappings ... &#125;,</div><div class="line">        &quot;type_two&quot;: &#123; ... any mappings ... &#125;,</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>其中的settings字段可以指定词义分析器、分词器等个性化设置，比如可以选择不同的分词器来生成不同需求的索引，mapping字段是对index的type进行设置，这里的type就好比数据库中的表，一个数据库可以创建多张表，同理这里可以设置多个type，对type中的字段进行设置，比如指定字段索引的时候用哪个分词器，搜索的时候用哪个分词器等，我们可以根据自身的需求创建不同的index，建好了索引之后我们就可以开始往索引中索引（此处的索引为动词，是ES中的专有名词）数据，以供后续的搜索。</p>
