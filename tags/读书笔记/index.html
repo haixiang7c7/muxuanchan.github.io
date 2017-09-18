@@ -6,18 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.halochen.com">
-  <title>jvm之类加载 | HaLo的个人博客</title>
+  <title>Tag: 读书笔记 | HaLo的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="jvm之类加载">
-<meta property="og:url" content="http://blog.halochen.com/2017/09/18/jvm_classload/index.html">
+  <meta name="description" content="此博客用于记录、分享、交流。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HaLo的个人博客">
+<meta property="og:url" content="http://blog.halochen.com/tags/读书笔记/index.html">
 <meta property="og:site_name" content="HaLo的个人博客">
-<meta property="og:description" content="此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。">
-<meta property="og:updated_time" content="2017-09-18T02:17:57.000Z">
+<meta property="og:description" content="此博客用于记录、分享、交流。">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jvm之类加载">
-<meta name="twitter:description" content="此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。">
+<meta name="twitter:title" content="HaLo的个人博客">
+<meta name="twitter:description" content="此博客用于记录、分享、交流。">
   
     <link rel="alternative" href="/atom.xml" title="HaLo的个人博客" type="application/atom+xml">
   
@@ -155,211 +154,65 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-jvm_classload" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      jvm之类加载
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/09/18/刻意练习读书笔记/" class="archive-article-date">
+  	<time datetime="2017-09-18T02:54:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-18</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/09/18/刻意练习读书笔记/">《刻意练习》读书笔记</a>
     </h1>
   
 
-        
-        <a href="/2017/09/18/jvm_classload/" class="archive-article-date">
-  	<time datetime="2017-09-18T02:17:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-	<div id="post-content-toc">
-    
-       	  <blockquote>
-<p>此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。    </p>
-</blockquote>
-
-    
-	</div>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢你请我吃泡面😝 <i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/images/alipay.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/images/wxpay.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://blog.halochen.com/2017/09/18/jvm_classload/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/09/18/刻意练习读书笔记/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          《刻意练习》读书笔记
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/08/09/ElasticSearch实战经验总结/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ElasticSearch实战经验总结</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-
+    </div></section>
   
 
-
- 
-
-  
-  <div id="SOHUCS" sid="jvm_classload" style="padding-left:30px;padding-right:30px"></div> 
-<script type="text/javascript"> 
-(function(){ 
-var appid = "cyt9zF5hV"; 
-var conf = "prod_640bb7f40f2c8f233232baebed98274b"; 
-var width = window.innerWidth || document.documentElement.clientWidth; 
-if (width < 960) { 
-window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
-
-  
-
+    
 
 
           </div>
         </div>
       </div>
-
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/awesome-toc.js"></script>
-    <script>
-            $.awesome_toc({
-                overlay: true,
-                contentId: "post-content-toc",
-                autoDetectHeadings: true,
-                enableToTopButton: true,
-                displayNow: false,
-                css: {
-                  backgroundColor:"#606060",
-                  activeFontColor:"#FFFFFF",
-                  fontColor:"#9A9A9A",
-                       fontSize: "14px",
-                       largeFontSize: "18px",
-                     },
-            });
-    </script>
-
 
 
       <footer id="footer">
@@ -380,9 +233,9 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
