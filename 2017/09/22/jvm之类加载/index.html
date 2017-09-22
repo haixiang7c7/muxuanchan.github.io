@@ -6,11 +6,9 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.halochen.com">
-  <title>HaLo的个人博客</title>
+  <title>jvm之类加载 | HaLo的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: jvm之类加载tag: jvm-
-
-此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。    
+  <meta name="description" content="此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。    
 
 
 jvm的类加载包括五个步骤：加载、验证、准备、解析、初始化。
@@ -18,14 +16,12 @@ jvm的类加载包括五个步骤：加载、验证、准备、解析、初始�
 加载加载包含三个步骤：
 1.通过类的全限定名去获取定义此类的二进制字节流
 2.将这个字节流所代表的静态存储文件转化为方法区的运行时数据结构
-3.在内存中生成一个代表这个类的java.lang.">
+3.在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HaLo的个人博客">
-<meta property="og:url" content="http://blog.halochen.com/2017/09/22/jvm类加载/index.html">
+<meta property="og:title" content="jvm之类加载">
+<meta property="og:url" content="http://blog.halochen.com/2017/09/22/jvm之类加载/index.html">
 <meta property="og:site_name" content="HaLo的个人博客">
-<meta property="og:description" content="title: jvm之类加载tag: jvm-
-
-此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。    
+<meta property="og:description" content="此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。    
 
 
 jvm的类加载包括五个步骤：加载、验证、准备、解析、初始化。
@@ -33,14 +29,12 @@ jvm的类加载包括五个步骤：加载、验证、准备、解析、初始�
 加载加载包含三个步骤：
 1.通过类的全限定名去获取定义此类的二进制字节流
 2.将这个字节流所代表的静态存储文件转化为方法区的运行时数据结构
-3.在内存中生成一个代表这个类的java.lang.">
+3.在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问">
 <meta property="og:image" content="http://img.blog.csdn.net/20160506184936657">
-<meta property="og:updated_time" content="2017-09-22T03:45:45.000Z">
+<meta property="og:updated_time" content="2017-09-22T03:48:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HaLo的个人博客">
-<meta name="twitter:description" content="title: jvm之类加载tag: jvm-
-
-此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。    
+<meta name="twitter:title" content="jvm之类加载">
+<meta name="twitter:description" content="此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。    
 
 
 jvm的类加载包括五个步骤：加载、验证、准备、解析、初始化。
@@ -48,7 +42,7 @@ jvm的类加载包括五个步骤：加载、验证、准备、解析、初始�
 加载加载包含三个步骤：
 1.通过类的全限定名去获取定义此类的二进制字节流
 2.将这个字节流所代表的静态存储文件转化为方法区的运行时数据结构
-3.在内存中生成一个代表这个类的java.lang.">
+3.在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20160506184936657">
   
     <link rel="alternative" href="/atom.xml" title="HaLo的个人博客" type="application/atom+xml">
@@ -187,15 +181,29 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-jvm类加载" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-jvm之类加载" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jvm之类加载
+    </h1>
+  
+
+        
+        <a href="/2017/09/22/jvm之类加载/" class="archive-article-date">
+  	<time datetime="2017-09-22T03:48:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-22</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
 	<div id="post-content-toc">
     
-       	  <p>title: jvm之类加载<br>tag: jvm<br>-</p>
-<blockquote>
+       	  <blockquote>
 <p>此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。    </p>
 </blockquote>
 <p><br></p>
@@ -257,6 +265,17 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -307,7 +326,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://blog.halochen.com/2017/09/22/jvm类加载/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://blog.halochen.com/2017/09/22/jvm之类加载/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -340,7 +359,7 @@ var _hmt = _hmt || [];
  
 
   
-  <div id="SOHUCS" sid="jvm类加载" style="padding-left:30px;padding-right:30px"></div> 
+  <div id="SOHUCS" sid="jvm之类加载" style="padding-left:30px;padding-right:30px"></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cyt9zF5hV"; 
