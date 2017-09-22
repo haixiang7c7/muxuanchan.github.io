@@ -10,39 +10,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。    
 
-
 jvm的类加载包括五个步骤：加载、验证、准备、解析、初始化。
-
 加载加载包含三个步骤：
 1.通过类的全限定名去获取定义此类的二进制字节流
 2.将这个字节流所代表的静态存储文件转化为方法区的运行时数据结构
-3.在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问">
+3.在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jvm之类加载">
 <meta property="og:url" content="http://blog.halochen.com/2017/09/22/jvm之类加载/index.html">
 <meta property="og:site_name" content="HaLo的个人博客">
 <meta property="og:description" content="此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。    
 
-
 jvm的类加载包括五个步骤：加载、验证、准备、解析、初始化。
-
 加载加载包含三个步骤：
 1.通过类的全限定名去获取定义此类的二进制字节流
 2.将这个字节流所代表的静态存储文件转化为方法区的运行时数据结构
-3.在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问">
+3.在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口">
 <meta property="og:image" content="http://img.blog.csdn.net/20160506184936657">
-<meta property="og:updated_time" content="2017-09-22T03:48:29.000Z">
+<meta property="og:updated_time" content="2017-09-22T03:53:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jvm之类加载">
 <meta name="twitter:description" content="此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。    
 
-
 jvm的类加载包括五个步骤：加载、验证、准备、解析、初始化。
-
 加载加载包含三个步骤：
 1.通过类的全限定名去获取定义此类的二进制字节流
 2.将这个字节流所代表的静态存储文件转化为方法区的运行时数据结构
-3.在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问">
+3.在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20160506184936657">
   
     <link rel="alternative" href="/atom.xml" title="HaLo的个人博客" type="application/atom+xml">
@@ -206,9 +200,7 @@ var _hmt = _hmt || [];
        	  <blockquote>
 <p>此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。    </p>
 </blockquote>
-<p><br></p>
-<big>jvm的类加载包括五个步骤：加载、验证、准备、解析、初始化。</big>
-
+<p><br><br>jvm的类加载包括五个步骤：加载、验证、准备、解析、初始化。</p>
 <h3 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h3><p>加载包含三个步骤：</p>
 <p>1.通过类的全限定名去获取定义此类的二进制字节流</p>
 <p>2.将这个字节流所代表的静态存储文件转化为方法区的运行时数据结构</p>
