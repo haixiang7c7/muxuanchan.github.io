@@ -6,18 +6,50 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.halochen.com">
-  <title>jvm之类加载 | HaLo的个人博客</title>
+  <title>HaLo的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。">
+  <meta name="description" content="title: jvm之类加载tag: jvm-
+
+此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。    
+
+
+jvm的类加载包括五个步骤：加载、验证、准备、解析、初始化。
+
+加载加载包含三个步骤：
+1.通过类的全限定名去获取定义此类的二进制字节流
+2.将这个字节流所代表的静态存储文件转化为方法区的运行时数据结构
+3.在内存中生成一个代表这个类的java.lang.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jvm之类加载">
-<meta property="og:url" content="http://blog.halochen.com/2017/09/18/jvm_classload/index.html">
+<meta property="og:title" content="HaLo的个人博客">
+<meta property="og:url" content="http://blog.halochen.com/2017/09/22/jvm类加载/index.html">
 <meta property="og:site_name" content="HaLo的个人博客">
-<meta property="og:description" content="此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。">
-<meta property="og:updated_time" content="2017-09-18T02:17:57.000Z">
+<meta property="og:description" content="title: jvm之类加载tag: jvm-
+
+此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。    
+
+
+jvm的类加载包括五个步骤：加载、验证、准备、解析、初始化。
+
+加载加载包含三个步骤：
+1.通过类的全限定名去获取定义此类的二进制字节流
+2.将这个字节流所代表的静态存储文件转化为方法区的运行时数据结构
+3.在内存中生成一个代表这个类的java.lang.">
+<meta property="og:image" content="http://img.blog.csdn.net/20160506184936657">
+<meta property="og:updated_time" content="2017-09-22T03:45:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jvm之类加载">
-<meta name="twitter:description" content="此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。">
+<meta name="twitter:title" content="HaLo的个人博客">
+<meta name="twitter:description" content="title: jvm之类加载tag: jvm-
+
+此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。    
+
+
+jvm的类加载包括五个步骤：加载、验证、准备、解析、初始化。
+
+加载加载包含三个步骤：
+1.通过类的全限定名去获取定义此类的二进制字节流
+2.将这个字节流所代表的静态存储文件转化为方法区的运行时数据结构
+3.在内存中生成一个代表这个类的java.lang.">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160506184936657">
   
     <link rel="alternative" href="/atom.xml" title="HaLo的个人博客" type="application/atom+xml">
   
@@ -155,31 +187,35 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-jvm_classload" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-jvm类加载" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      jvm之类加载
-    </h1>
-  
-
-        
-        <a href="/2017/09/18/jvm_classload/" class="archive-article-date">
-  	<time datetime="2017-09-18T02:17:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-18</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
 	<div id="post-content-toc">
     
-       	  <blockquote>
+       	  <p>title: jvm之类加载<br>tag: jvm<br>-</p>
+<blockquote>
 <p>此文主要参考《深入理解Java虚拟机》一书，用以整理、巩固和分享jvm相关知识。    </p>
 </blockquote>
+<p><br></p>
+<big>jvm的类加载包括五个步骤：加载、验证、准备、解析、初始化。</big>
+
+<h3 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h3><p>加载包含三个步骤：</p>
+<p>1.通过类的全限定名去获取定义此类的二进制字节流</p>
+<p>2.将这个字节流所代表的静态存储文件转化为方法区的运行时数据结构</p>
+<p>3.在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口</p>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>验证包括四个步骤：</p>
+<p>1.文件格式验证</p>
+<p>2.元数据验证</p>
+<p>3.字节码验证</p>
+<p>4.符号引用验证</p>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>准备阶段是正式为类变量分配内存并设置变量初始值的阶段，这些变量所使用的内存都将在方法区进行分配</p>
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>解析阶段是将常量池的符号引用替换为直接引用的过程</p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>初始化类变量和其他资源，也就是：执行类构造器<clinit>()方法</clinit></p>
+<p>-</p>
+<h3 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h3><p><img src="http://img.blog.csdn.net/20160506184936657" alt="类加载器的双亲委派模型"><br>类加载器的双亲委派模型的工作过程是：如果一个类加载器收到了加载类的请求，它首先不会自己去加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载器都是如此，因此所有的加载请求最终都应该传送到顶层的启动类加载器中，只有当父类加载器反馈无法完成这个加载请求（它的搜索范围中没有找到所需的类）时，子加载器才会尝试自己去加载。</p>
+<p>这样的好处是：Java类随着它的类加载器一起具备了一种带有优先级的层次关系。比如，java.lang.Object存放在rt.jar中，无论哪个类加载器要加载这个类，最终都委派给处于模型顶端的启动类加载器进行加载，因此object类在程序的各种类加载器环境中都是同一个类。</p>
 
     
 	</div>
@@ -221,17 +257,6 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -282,7 +307,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://blog.halochen.com/2017/09/18/jvm_classload/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://blog.halochen.com/2017/09/22/jvm类加载/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -296,18 +321,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/09/18/刻意练习读书笔记/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          《刻意练习》读书笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/08/09/ElasticSearch实战经验总结/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ElasticSearch实战经验总结</div>
+    <a href="/2017/09/18/刻意练习读书笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《刻意练习》读书笔记</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -324,7 +340,7 @@ var _hmt = _hmt || [];
  
 
   
-  <div id="SOHUCS" sid="jvm_classload" style="padding-left:30px;padding-right:30px"></div> 
+  <div id="SOHUCS" sid="jvm类加载" style="padding-left:30px;padding-right:30px"></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cyt9zF5hV"; 
