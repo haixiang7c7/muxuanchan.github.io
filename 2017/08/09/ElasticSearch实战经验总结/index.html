@@ -6,13 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.halochen.com">
-  <title>ElasticSearch实战经验总结 | HaLo的个人博客</title>
+  <title>ElasticSearch实战经验总结 | 子轩的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="最近产品中增加了搜索的需求，同时需要根据不同的维度来排列搜索结果，普通的sql排序已无法满足需求，因此需要一款搜索引擎来解决这个问题，网上搜索了一番发现目前比较流行的一款产品ElasticSearch，简单了解之后发现它功能强大天生支持分布式且容易上手，很适合作为我们产品的搜索引擎。本文接下来将简单介绍一下相关的实战经验，即作为本人的归纳总结，也是给其他想要采用ElasticSearch（下文简称">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ElasticSearch实战经验总结">
 <meta property="og:url" content="http://blog.halochen.com/2017/08/09/ElasticSearch实战经验总结/index.html">
-<meta property="og:site_name" content="HaLo的个人博客">
+<meta property="og:site_name" content="子轩的个人博客">
 <meta property="og:description" content="最近产品中增加了搜索的需求，同时需要根据不同的维度来排列搜索结果，普通的sql排序已无法满足需求，因此需要一款搜索引擎来解决这个问题，网上搜索了一番发现目前比较流行的一款产品ElasticSearch，简单了解之后发现它功能强大天生支持分布式且容易上手，很适合作为我们产品的搜索引擎。本文接下来将简单介绍一下相关的实战经验，即作为本人的归纳总结，也是给其他想要采用ElasticSearch（下文简称">
 <meta property="og:image" content="https://github.com/halochen90/HexoBlog/blob/master/source/_posts/images/es/es1.png?raw=true">
 <meta property="og:image" content="https://github.com/halochen90/HexoBlog/blob/master/source/_posts/images/es/kibanaLaunch.png?raw=true">
@@ -23,7 +23,7 @@
 <meta name="twitter:description" content="最近产品中增加了搜索的需求，同时需要根据不同的维度来排列搜索结果，普通的sql排序已无法满足需求，因此需要一款搜索引擎来解决这个问题，网上搜索了一番发现目前比较流行的一款产品ElasticSearch，简单了解之后发现它功能强大天生支持分布式且容易上手，很适合作为我们产品的搜索引擎。本文接下来将简单介绍一下相关的实战经验，即作为本人的归纳总结，也是给其他想要采用ElasticSearch（下文简称">
 <meta name="twitter:image" content="https://github.com/halochen90/HexoBlog/blob/master/source/_posts/images/es/es1.png?raw=true">
   
-    <link rel="alternative" href="/atom.xml" title="HaLo的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="子轩的个人博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/images/favicon.png">
@@ -63,7 +63,7 @@ var _hmt = _hmt || [];
 			<img src="/images/me.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">HaLo</a></h1>
+		  <h1 class="header-author"><a href="/">子轩</a></h1>
 		</hgroup>
 		
 		<p class="header-subtitle">这里就像与闹市隔绝的又一个世界</p>
@@ -117,7 +117,7 @@ var _hmt = _hmt || [];
 				<img src="/images/me.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">HaLo</h1>
+			  <h1 class="header-author js-header-author">子轩</h1>
 			</hgroup>
 			
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>这里就像与闹市隔绝的又一个世界<i class="icon icon-quo-right"></i></p>
@@ -389,7 +389,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 HaLo
+    		&copy; 2018 子轩
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/halochen90/hexo-theme-luna" target="_blank">Luna</a> by HaLo
